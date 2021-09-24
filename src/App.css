@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #customScrollbar::-webkit-scrollbar-track {
@@ -19,4 +19,9 @@ body {
     background-color: #ececec;
     border-radius: 50px;
     height: 120px;
+}
+
+.user-actions-icons i {
+    color: rgb(0, 132, 255);
+    font-size: x-large;
 }
