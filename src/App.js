@@ -5,7 +5,7 @@ import ChatArea from './components/ChatArea';
 
 function App() {
 	return (
-		<div className="App" style={{ overflowY: 'hidden' }}>
+		<div className="App">
 			<Navbar />
 			<div className="main">
 				<div className="row">

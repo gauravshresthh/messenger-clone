@@ -61,9 +61,11 @@ const ChatArea = () => {
 					messageList?.data?.map(user => {
 						if (user?.id % 2 === 0) {
 							return (
-								<div className="my-3">
+								<div
+									key={user?.id}
+									className="my-3 d-flex justify-content-end mx-5 ">
 									<div
-										className="incoming-message "
+										className="incoming-message px-3 py-2 rounded-pill"
 										style={{ display: 'inline' }}>
 										{user?.id}
 									</div>
@@ -71,9 +73,10 @@ const ChatArea = () => {
 							);
 						} else {
 							return (
-								<div className="my-3">
+								<div className="my-3 justify-content-start mx-5 ">
 									<div
-										className="outgoing-message my-3"
+										key={user?.id}
+										className="outgoing-message my-3 px-3 py-2 rounded-pill "
 										style={{ display: 'inline' }}>
 										{user?.id}
 									</div>
@@ -81,6 +84,11 @@ const ChatArea = () => {
 							);
 						}
 					})}
+				<button
+					className="btn btn-primary"
+					onClick={() => setCurrentPage(currentPage + 1)}>
+					Fetch more data
+				</button>
 			</div>
 		</div>
 	);

@@ -9,7 +9,7 @@ const Sidebar = () => {
 		<div
 			className="mx-3 CustomSidebar"
 			style={{
-				overflowY: isShown ? 'scroll' : 'hidden',
+				overflowY: isShown ? 'scroll' : '',
 				overflowX: 'hidden',
 				height: '100vh',
 			}}
