@@ -5,3 +5,19 @@
 .navbar-nav li i {
     color: rgb(117, 117, 117);
 }
+
+.customNav ul li {
+    padding: 10px;
+}
+
+.customNav ul li:hover {
+    border: '10px solid gray';
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchBar {
+        display: none;
+    }
+}

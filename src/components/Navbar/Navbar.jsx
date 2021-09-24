@@ -6,7 +6,6 @@ import logoGroup from '../../assets/icons/group.svg';
 import logoMarket from '../../assets/icons/store.svg';
 import logoWatch from '../../assets/icons/youtube.svg';
 import './Navbar.css';
-import Logo from '../Logo';
 
 export default function Navbar() {
 	return (
@@ -28,8 +27,8 @@ export default function Navbar() {
 					aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
-				<div className="collapse navbar-collapse " id="navbarNav">
-					<ul className="navbar-nav shadow-none d-flex align-items-center">
+				<div className="collapse navbar-collapse customNav" id="navbarNav">
+					<ul className="navbar-nav shadow-none">
 						<li className="nav-item">
 							<input
 								className="form-control rounded-pill searchBar"
@@ -38,7 +37,7 @@ export default function Navbar() {
 								aria-label="Search"
 							/>
 						</li>
-						<li className="nav-item mx-5">
+						<li className="nav-item mx-5 active">
 							<img src={logoHome} alt="home logo" style={{ height: '30px' }} />
 						</li>
 						<li className="nav-item mx-5">
