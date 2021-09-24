@@ -12,7 +12,7 @@ body {
 
 #customScrollbar::-webkit-scrollbar {
     background: transparent;
-    width: 5px;
+    width: 8px;
 }
 
 #customScrollbar::-webkit-scrollbar-thumb {
@@ -24,4 +24,16 @@ body {
 .user-actions-icons i {
     color: rgb(0, 132, 255);
     font-size: x-large;
+}
+
+.user-actions-icons i:hover {
+    cursor: pointer;
+}
+
+.incoming-message {
+    background-color: rgb(241, 241, 241);
+}
+
+.outgoing-message {
+    background-color: rgb(0, 132, 255);
 }

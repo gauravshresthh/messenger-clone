@@ -1,6 +1,33 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listMessages } from '../store/actions/messages.actions';
+
 const ChatArea = () => {
+	const dispatch = useDispatch();
+	const {
+		messageListSuccess,
+		messageListError,
+		messageListLoading,
+		messageList,
+	} = useSelector(state => state?.messages);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [isShown, setIsShown] = useState(false);
+
+	useEffect(() => {
+		dispatch(listMessages(currentPage));
+	}, [dispatch, currentPage]);
+
 	return (
-		<div className="mt-3">
+		<div
+			className="mt-3"
+			style={{
+				overflowY: isShown ? 'scroll' : 'hidden',
+				overflowX: 'hidden',
+				height: '100vh',
+			}}
+			onMouseEnter={() => setIsShown(true)}
+			onMouseLeave={() => setIsShown(false)}
+			id="customScrollbar">
 			<div className="d-flex shadow-sm justify-content-between">
 				<div className="user-data-container d-flex">
 					<div className="img-container">
@@ -27,6 +54,33 @@ const ChatArea = () => {
 					<i className="fa-solid fa-video mx-2" />
 					<i className="fa-solid fa-circle-info mx-2" />
 				</div>
+			</div>
+
+			<div className="chat">
+				{!!messageList &&
+					messageList?.data?.map(user => {
+						if (user?.id % 2 === 0) {
+							return (
+								<div className="my-3">
+									<div
+										className="incoming-message "
+										style={{ display: 'inline' }}>
+										{user?.id}
+									</div>
+								</div>
+							);
+						} else {
+							return (
+								<div className="my-3">
+									<div
+										className="outgoing-message my-3"
+										style={{ display: 'inline' }}>
+										{user?.id}
+									</div>
+								</div>
+							);
+						}
+					})}
 			</div>
 		</div>
 	);
