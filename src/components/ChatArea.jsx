@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMessages } from '../store/actions/messages.actions';
+import Loader from './Loader/Loader';
 
 const ChatArea = () => {
 	const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ChatArea = () => {
 	} = useSelector(state => state?.messages);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [isShown, setIsShown] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		dispatch(listMessages(currentPage));
@@ -57,6 +59,13 @@ const ChatArea = () => {
 			</div>
 
 			<div className="chat">
+				{messageListLoading ? (
+					<div className="d-flex justify-content-center align-items-center">
+						<Loader />
+					</div>
+				) : (
+					''
+				)}
 				{!!messageList &&
 					messageList?.data?.map(user => {
 						if (user?.id % 2 === 0) {
