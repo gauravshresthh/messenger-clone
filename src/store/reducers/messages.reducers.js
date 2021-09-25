@@ -18,7 +18,6 @@ export const messageReducer = (state = initialState, action) => {
 			return {
 				...state,
 				messageListLoading: true,
-				messageList: [],
 				messageListSuccess: false,
 				messageListError: null,
 			};

@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMessages } from '../store/actions/messages.actions';
-import Loader from './Loader/Loader';
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 const ChatArea = () => {
 	const dispatch = useDispatch();
@@ -76,7 +74,7 @@ const ChatArea = () => {
 			</div>
 
 			<div className="chat">
-				{loading ? (
+				{messageListLoading ? (
 					<div className="d-flex justify-content-center align-items-center">
 						<div className="spinner-border text-secondary m-3" role="status">
 							<span className="sr-only">Loading...</span>
@@ -96,7 +94,8 @@ const ChatArea = () => {
 									<div
 										className="incoming-message px-3 py-2 rounded-pill"
 										style={{ display: 'inline' }}>
-										{user?.email}
+										{user?.email} <br />
+										{user?.name} <br />
 									</div>
 								</div>
 							);
