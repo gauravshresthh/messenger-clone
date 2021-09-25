@@ -5,14 +5,14 @@ import { listMessages } from '../../store/actions/messages.actions';
 const ChatArea = () => {
 	const dispatch = useDispatch();
 	const {
-		messageListSuccess,
-		messageListError,
+		// messageListSuccess,
+		// messageListError,
 		messageListLoading,
 		messageList,
 	} = useSelector(state => state?.messages);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [isShown, setIsShown] = useState(false);
-	const [loading, setLoading] = useState(true);
+	// const [isShown, setIsShown] = useState(false);
+	// const [loading, setLoading] = useState(true);
 
 	const ScrollRef = useRef(null);
 	useEffect(() => {
@@ -20,7 +20,7 @@ const ChatArea = () => {
 	}, [dispatch, currentPage]);
 
 	const handleScroll = e => {
-		const scrollY = window.scrollY;
+		// const scrollY = window.scrollY;
 		const scrollTop = ScrollRef.current.scrollTop;
 		if (scrollTop === 0) {
 			setCurrentPage(currentPage + 1);
@@ -40,8 +40,8 @@ const ChatArea = () => {
 				overflowX: 'hidden',
 				height: '100vh',
 			}}
-			onMouseEnter={() => setIsShown(true)}
-			onMouseLeave={() => setIsShown(false)}
+			// onMouseEnter={() => setIsShown(true)}
+			// onMouseLeave={() => setIsShown(false)}
 			ref={ScrollRef}
 			onScroll={handleScroll}
 			id="customScrollbar2">
