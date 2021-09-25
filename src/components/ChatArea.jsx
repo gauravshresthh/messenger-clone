@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMessages } from '../store/actions/messages.actions';
 import Loader from './Loader/Loader';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const ChatArea = () => {
 	const dispatch = useDispatch();
@@ -15,20 +16,36 @@ const ChatArea = () => {
 	const [isShown, setIsShown] = useState(false);
 	const [loading, setLoading] = useState(true);
 
+	const ScrollRef = useRef(null);
 	useEffect(() => {
 		dispatch(listMessages(currentPage));
 	}, [dispatch, currentPage]);
+
+	const handleScroll = e => {
+		const scrollY = window.scrollY;
+		const scrollTop = ScrollRef.current.scrollTop;
+		if (scrollTop === 0) {
+			setCurrentPage(currentPage + 1);
+			return;
+		}
+
+		// console.log(
+		// 	`onScroll, window.scrollY: ${scrollY} myRef.scrollTop: ${scrollTop}`
+		// );
+	};
 
 	return (
 		<div
 			className="mt-3"
 			style={{
-				overflowY: isShown ? 'scroll' : 'hidden',
+				overflowY: 'scroll',
 				overflowX: 'hidden',
 				height: '100vh',
 			}}
 			onMouseEnter={() => setIsShown(true)}
 			onMouseLeave={() => setIsShown(false)}
+			ref={ScrollRef}
+			onScroll={handleScroll}
 			id="customScrollbar">
 			<div className="d-flex shadow-sm justify-content-between">
 				<div className="user-data-container d-flex">
@@ -59,15 +76,18 @@ const ChatArea = () => {
 			</div>
 
 			<div className="chat">
-				{messageListLoading ? (
+				{loading ? (
 					<div className="d-flex justify-content-center align-items-center">
-						<Loader />
+						<div className="spinner-border text-secondary m-3" role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
 					</div>
 				) : (
 					''
 				)}
+
 				{!!messageList &&
-					messageList?.data?.map(user => {
+					messageList.reverse().map(user => {
 						if (user?.id % 2 === 0) {
 							return (
 								<div
@@ -76,7 +96,7 @@ const ChatArea = () => {
 									<div
 										className="incoming-message px-3 py-2 rounded-pill"
 										style={{ display: 'inline' }}>
-										{user?.id}
+										{user?.email}
 									</div>
 								</div>
 							);
@@ -87,17 +107,18 @@ const ChatArea = () => {
 										key={user?.id}
 										className="outgoing-message my-3 px-3 py-2 rounded-pill "
 										style={{ display: 'inline' }}>
-										{user?.id}
+										{user?.email}
 									</div>
 								</div>
 							);
 						}
 					})}
-				<button
+
+				{/* <button
 					className="btn btn-primary"
 					onClick={() => setCurrentPage(currentPage + 1)}>
 					Fetch more data
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);

@@ -5,11 +5,16 @@ import {
 } from '../constants/messages.constants';
 import api from '../../api';
 
-export const listMessages = page => async dispatch => {
+export const listMessages = page => async (dispatch, getState) => {
 	try {
+		let currentData = getState().messages?.messageList;
+
 		dispatch({ type: MESSAGE_LIST_REQUEST });
 		const { data } = await api.get(`users?page=${page}`);
-		dispatch({ type: MESSAGE_LIST_SUCCESS, payload: data });
+		if (data) {
+			currentData = currentData.concat(data.data);
+		}
+		dispatch({ type: MESSAGE_LIST_SUCCESS, payload: currentData });
 		return;
 	} catch (error) {
 		dispatch({

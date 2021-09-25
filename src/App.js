@@ -12,9 +12,10 @@ function App() {
 					<div className="col col-md-3 sidebar">
 						<Sidebar />
 					</div>
-					<div className="col col-md-9 chatArea">
+					<div className="col col-md-7 chatArea">
 						<ChatArea />
 					</div>
+					<div className="col col-md-2 ">Hello world</div>
 				</div>
 			</div>
 		</div>

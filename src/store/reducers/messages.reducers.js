@@ -9,6 +9,7 @@ const initialState = {
 	messageListLoading: false,
 	messageListError: null,
 	messageListSuccess: false,
+	messageListStored: [],
 };
 
 export const messageReducer = (state = initialState, action) => {
