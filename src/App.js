@@ -1,7 +1,8 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import ChatArea from './components/ChatArea';
+import ChatArea from './components/ChatArea/ChatArea';
+import RightBar from './components/RightBar/RightBar';
 
 function App() {
 	return (
@@ -15,7 +16,9 @@ function App() {
 					<div className="col col-md-7 chatArea">
 						<ChatArea />
 					</div>
-					<div className="col col-md-2 ">Hello world</div>
+					<div className="col col-md-2 ">
+						<RightBar />
+					</div>
 				</div>
 			</div>
 		</div>

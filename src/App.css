@@ -3,14 +3,17 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #customScrollbar::-webkit-scrollbar-track {
     display: none;
 }
 
-#customScrollbar::-webkit-scrollbar {}
+#customScrollbar::-webkit-scrollbar {
+    background: transparent;
+    width: 8px;
+}
 
 #customScrollbar::-webkit-scrollbar-thumb {
     background-color: #ececec;

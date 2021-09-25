@@ -11,9 +11,9 @@ export const listMessages = page => async (dispatch, getState) => {
 
 		dispatch({ type: MESSAGE_LIST_REQUEST });
 		const { data } = await api.get(`users?page=${page}`);
-		if (data) {
-			currentData = currentData.concat(data.data);
-		}
+		console.log('currentArray', currentData);
+		currentData = currentData.concat(data.data);
+		console.log('new Array', currentData);
 		dispatch({ type: MESSAGE_LIST_SUCCESS, payload: currentData });
 		return;
 	} catch (error) {

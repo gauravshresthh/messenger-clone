@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listMessages } from '../store/actions/messages.actions';
+import { listMessages } from '../../store/actions/messages.actions';
 
 const ChatArea = () => {
 	const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const ChatArea = () => {
 			onMouseLeave={() => setIsShown(false)}
 			ref={ScrollRef}
 			onScroll={handleScroll}
-			id="customScrollbar">
+			id="customScrollbar2">
 			<div className="d-flex shadow-sm justify-content-between">
 				<div className="user-data-container d-flex">
 					<div className="img-container">

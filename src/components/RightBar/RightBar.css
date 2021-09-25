@@ -1,0 +1,13 @@
+.rightBar h5:hover {
+    text-decoration: underline;
+}
+
+.rightBar p:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+.rightBar p {
+    padding: 10px 10px 10px 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}

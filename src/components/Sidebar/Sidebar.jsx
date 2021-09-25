@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChatInfo from '../ChatInfo';
+import ChatInfo from '../ChatInfo/ChatInfo';
 import data from '../../data/userData.json';
 import './Sidebar.css';
 
@@ -9,7 +9,7 @@ const Sidebar = () => {
 		<div
 			className="mx-3 CustomSidebar"
 			style={{
-				overflowY: isShown ? 'scroll' : '',
+				overflowY: isShown ? 'scroll' : 'hidden',
 				overflowX: 'hidden',
 				height: '100vh',
 			}}
