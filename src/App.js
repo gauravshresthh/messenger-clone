@@ -10,13 +10,13 @@ function App() {
 			<Navbar />
 			<div className="main">
 				<div className="row">
-					<div className="col col-md-3 sidebar">
+					<div className="col col-md-3 sidebar shadow-sm">
 						<Sidebar />
 					</div>
-					<div className="col  col-md-7 chatArea">
+					<div className="col  col-md-7 chatArea shadow-sm">
 						<ChatArea />
 					</div>
-					<div className="col col-md-2 ">
+					<div className="col col-md-2 shadow-sm">
 						<RightBar />
 					</div>
 				</div>
