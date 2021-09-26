@@ -7,7 +7,7 @@ const Sidebar = () => {
 	const [isShown, setIsShown] = useState(false);
 	return (
 		<div
-			className="mx-3 CustomSidebar"
+			className="mx-3 CustomSideBar"
 			style={{
 				overflowY: isShown ? 'scroll' : 'hidden',
 				overflowX: 'hidden',

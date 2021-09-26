@@ -1,3 +1,18 @@
 .sidebar .chatInfo:hover {
     background-color: #ecf3ff;
 }
+
+@media only screen and (max-width: 600px) {
+    .CustomSideBar h2 {
+        text-align: center;
+        margin: 20px 0;
+    }
+}
+
+.CustomSideBar .chatInfo {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    flex: 1 2;
+}

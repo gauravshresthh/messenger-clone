@@ -2,8 +2,8 @@ import './RightBar.css';
 
 const RightBar = () => {
 	return (
-		<div className="rightBar">
-			<div className="my-5  d-flex align-items-center flex-column">
+		<div className="rightBar d-flex flex-column  align-items-center">
+			<div className="my-5 d-flex align-items-center flex-column">
 				<img
 					src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop"
 					className=""
